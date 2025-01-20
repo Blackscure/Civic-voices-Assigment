@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes')
 const corsMiddleware = require('./middleware/corsMiddleware')
-const waterSaleRoutes = require('./routes/waterSaleRoutes')
 
 const app = express();
 
