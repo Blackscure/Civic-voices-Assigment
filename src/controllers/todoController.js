@@ -1,7 +1,6 @@
 const Todo = require('../models/Todo');
 const createResponse = (success, message, data = null) => ({ success, message, data });
 
-// Get all todos with pagination
 exports.getTodos = async (req, res) => {
     try {
         const { page = 1, limit = 10 } = req.query; 
@@ -20,7 +19,6 @@ exports.getTodos = async (req, res) => {
     }
 };
 
-// Create a new todo
 exports.createTodo = async (req, res) => {
     try {
         const { title } = req.body;
@@ -29,7 +27,6 @@ exports.createTodo = async (req, res) => {
             return res.status(400).json(createResponse(false, 'Title is required'));
         }
 
-        // Check for duplicate
         const existingTodo = await Todo.findOne({ title });
         if (existingTodo) {
             return res.status(400).json(createResponse(false, 'Todo with this title already exists'));
@@ -43,13 +40,11 @@ exports.createTodo = async (req, res) => {
     }
 };
 
-// Update a todo
 exports.updateTodo = async (req, res) => {
     try {
         const { id } = req.params;
         const { title } = req.body;
 
-        // Check for duplicate title
         if (title) {
             const existingTodo = await Todo.findOne({ title });
             if (existingTodo && existingTodo._id.toString() !== id) {
@@ -68,7 +63,6 @@ exports.updateTodo = async (req, res) => {
     }
 };
 
-// Delete a todo
 exports.deleteTodo = async (req, res) => {
     try {
         const { id } = req.params;

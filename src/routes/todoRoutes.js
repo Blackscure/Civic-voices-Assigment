@@ -11,7 +11,6 @@ const router = express.Router();
 
 router.use(verifyToken); 
 
-// Routes
 router.get('/', getTodos); 
 router.post('/', createTodo); 
 router.put('/:id', updateTodo); 
