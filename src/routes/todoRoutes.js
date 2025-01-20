@@ -5,12 +5,16 @@ const {
     updateTodo,
     deleteTodo
 } = require('../controllers/todoController');
+const { verifyToken } = require('../middleware/authMiddleware'); 
 
 const router = express.Router();
 
-router.get('/', getTodos);
-router.post('/', createTodo);
-router.put('/:id', updateTodo);
-router.delete('/:id', deleteTodo);
+router.use(verifyToken); 
+
+// Routes
+router.get('/', getTodos); 
+router.post('/', createTodo); 
+router.put('/:id', updateTodo); 
+router.delete('/:id', deleteTodo); 
 
 module.exports = router;
