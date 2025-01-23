@@ -29,5 +29,5 @@ Before setting up the project, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/todo-app.git
+git clone https://github.com/Blackscure/todo-app.git
 cd todo-app
